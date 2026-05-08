@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Map } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { AtlButton } from '@ds'
 
 export function NotFoundPage() {
   const navigate = useNavigate()
@@ -17,9 +17,9 @@ export function NotFoundPage() {
           A rota que você tentou acessar não existe ou foi movida.
         </p>
       </div>
-      <Button onClick={() => navigate('/')} variant="primary">
+      <AtlButton typeButton="primary" onClick={() => navigate('/')}>
         Voltar ao Dashboard
-      </Button>
+      </AtlButton>
     </div>
   )
 }

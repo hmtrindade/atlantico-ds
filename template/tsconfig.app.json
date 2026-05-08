@@ -9,7 +9,9 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@ds":  ["../dist/index"],
+      "@ds/*": ["../dist/index"]
     },
 
     /* Bundler mode */

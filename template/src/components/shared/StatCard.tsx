@@ -1,6 +1,6 @@
 import { TrendingUp, TrendingDown } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { Card } from '@/components/ui/card'
+import { AtlCard } from '@ds'
 import { cn } from '@/lib/cn'
 import { formatPercent } from '@/lib/utils'
 
@@ -33,7 +33,7 @@ export function StatCard({
   const isPositive = change != null && change >= 0
 
   return (
-    <Card className={cn('p-5', className)}>
+    <AtlCard className={cn('p-5', className)}>
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-1 min-w-0">
           <p className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
@@ -67,6 +67,6 @@ export function StatCard({
           <Icon className="h-5 w-5" />
         </div>
       </div>
-    </Card>
+    </AtlCard>
   )
 }

@@ -1,8 +1,7 @@
 import { BarChart3 } from 'lucide-react'
+import { AtlButton, AtlCard, AtlCardHeader, AtlCardContent } from '@ds'
 import { PageHeader } from '@/components/shared/PageHeader'
 import { EmptyState } from '@/components/shared/EmptyState'
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 
 export function AnalyticsPage() {
   return (
@@ -11,47 +10,45 @@ export function AnalyticsPage() {
         title="Analytics"
         description="Análise detalhada de desempenho e tendências"
         actions={
-          <Button variant="outline" size="sm">
+          <AtlButton typeButton="standard" style="outline" size="small">
             Últimos 30 dias
-          </Button>
+          </AtlButton>
         }
       />
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <Card className="md:col-span-2">
-          <CardHeader>
-            <CardTitle>Receita Mensal</CardTitle>
-          </CardHeader>
-          <CardContent>
+        <AtlCard className="md:col-span-2">
+          <AtlCardHeader headline="Receita Mensal" />
+          <AtlCardContent>
             <EmptyState
               icon={BarChart3}
               title="Gráficos em breve"
               description="Integre uma biblioteca de charts como Recharts ou Chart.js para exibir os dados."
             />
-          </CardContent>
-        </Card>
+          </AtlCardContent>
+        </AtlCard>
 
-        <Card>
-          <CardHeader><CardTitle>Distribuição por Canal</CardTitle></CardHeader>
-          <CardContent>
+        <AtlCard>
+          <AtlCardHeader headline="Distribuição por Canal" />
+          <AtlCardContent>
             <EmptyState
               icon={BarChart3}
               title="Aguardando dados"
               description="Conecte sua fonte de dados para visualizar."
             />
-          </CardContent>
-        </Card>
+          </AtlCardContent>
+        </AtlCard>
 
-        <Card>
-          <CardHeader><CardTitle>Retenção de Clientes</CardTitle></CardHeader>
-          <CardContent>
+        <AtlCard>
+          <AtlCardHeader headline="Retenção de Clientes" />
+          <AtlCardContent>
             <EmptyState
               icon={BarChart3}
               title="Aguardando dados"
               description="Conecte sua fonte de dados para visualizar."
             />
-          </CardContent>
-        </Card>
+          </AtlCardContent>
+        </AtlCard>
       </div>
     </div>
   )
