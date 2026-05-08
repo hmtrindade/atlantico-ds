@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: adds .dark to <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS — Atlantic DS
+   Semantic CSS variables, toggled via .dark class
+───────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --background:     #f3f4f8;
+  --surface:        #ffffff;
+  --surface-subtle: #f8fafc;
+  --surface-muted:  #f1f5f9;
+
+  /* Foreground / Text */
+  --foreground:          #0f172a;
+  --foreground-muted:    #64748b;
+  --foreground-subtle:   #94a3b8;
+  --foreground-disabled: #cbd5e1;
+
+  /* Sidebar (deep navy — intentionally dark in both modes) */
+  --sidebar:                    #0d1b2e;
+  --sidebar-foreground:         #7d92a8;
+  --sidebar-foreground-active:  #f1f5f9;
+  --sidebar-accent:             #162644;
+  --sidebar-accent-foreground:  #f1f5f9;
+  --sidebar-border:             #162235;
+
+  /* Brand / Primary */
+  --primary:            #1d4ed8;
+  --primary-foreground: #ffffff;
+  --primary-hover:      #1a44c2;
+  --primary-muted:      #eff6ff;
+
+  /* Secondary */
+  --secondary:            #f1f5f9;
+  --secondary-foreground: #475569;
+
+  /* Muted */
+  --muted:            #f1f5f9;
+  --muted-foreground: #64748b;
+
+  /* Accent */
+  --accent:            #eff6ff;
+  --accent-foreground: #1d4ed8;
+
+  /* Destructive */
+  --destructive:            #ef4444;
+  --destructive-foreground: #ffffff;
+  --destructive-bg:         #fef2f2;
+
+  /* Borders & inputs */
+  --border:       #e2e8f0;
+  --border-strong: #94a3b8;
+  --input:        #e2e8f0;
+  --ring:         #1d4ed8;
+
+  /* Status — Success */
+  --success:            #16a34a;
+  --success-foreground: #ffffff;
+  --success-bg:         #f0fdf4;
+  --success-border:     #bbf7d0;
+
+  /* Status — Warning */
+  --warning:            #d97706;
+  --warning-foreground: #ffffff;
+  --warning-bg:         #fffbeb;
+  --warning-border:     #fde68a;
+
+  /* Status — Info */
+  --info:            #0284c7;
+  --info-foreground: #ffffff;
+  --info-bg:         #f0f9ff;
+  --info-border:     #bae6fd;
+
+  /* Layout dimensions */
+  --sidebar-width:           256px;
+  --sidebar-width-collapsed: 64px;
+  --topbar-height:           64px;
+
+  /* Border radius base */
+  --radius: 8px;
+}
+
+.dark {
+  --background:     #080f1c;
+  --surface:        #0d1525;
+  --surface-subtle: #0f1a2e;
+  --surface-muted:  #121f35;
+
+  --foreground:          #e2e8f0;
+  --foreground-muted:    #94a3b8;
+  --foreground-subtle:   #64748b;
+  --foreground-disabled: #334155;
+
+  --sidebar:                    #060c18;
+  --sidebar-foreground:         #546a7b;
+  --sidebar-foreground-active:  #e2e8f0;
+  --sidebar-accent:             #0d1a2e;
+  --sidebar-accent-foreground:  #e2e8f0;
+  --sidebar-border:             #0f1a2e;
+
+  --primary:            #3b82f6;
+  --primary-foreground: #ffffff;
+  --primary-hover:      #2563eb;
+  --primary-muted:      #172554;
+
+  --secondary:            #1a2840;
+  --secondary-foreground: #94a3b8;
+
+  --muted:            #1a2840;
+  --muted-foreground: #64748b;
+
+  --accent:            #172554;
+  --accent-foreground: #60a5fa;
+
+  --destructive:            #f87171;
+  --destructive-foreground: #ffffff;
+  --destructive-bg:         #2d0a0a;
+
+  --border:        #1a2840;
+  --border-strong: #334155;
+  --input:         #1a2840;
+  --ring:          #3b82f6;
+
+  --success:            #22c55e;
+  --success-foreground: #ffffff;
+  --success-bg:         #052e16;
+  --success-border:     #166534;
+
+  --warning:            #f59e0b;
+  --warning-foreground: #ffffff;
+  --warning-bg:         #1c1412;
+  --warning-border:     #92400e;
+
+  --info:            #38bdf8;
+  --info-foreground: #ffffff;
+  --info-bg:         #0c1f30;
+  --info-border:     #0369a1;
+}
+
+/* ─────────────────────────────────────────────
+   TAILWIND THEME MAPPING
+   Bridges runtime CSS vars → Tailwind utilities
+   bg-background, text-foreground, border-border…
+───────────────────────────────────────────── */
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Core */
+  --color-background:     var(--background);
+  --color-surface:        var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted:  var(--surface-muted);
+
+  /* Text */
+  --color-foreground:          var(--foreground);
+  --color-foreground-muted:    var(--foreground-muted);
+  --color-foreground-subtle:   var(--foreground-subtle);
+  --color-foreground-disabled: var(--foreground-disabled);
+
+  /* Sidebar */
+  --color-sidebar:                    var(--sidebar);
+  --color-sidebar-foreground:         var(--sidebar-foreground);
+  --color-sidebar-foreground-active:  var(--sidebar-foreground-active);
+  --color-sidebar-accent:             var(--sidebar-accent);
+  --color-sidebar-accent-foreground:  var(--sidebar-accent-foreground);
+  --color-sidebar-border:             var(--sidebar-border);
+
+  /* Brand */
+  --color-primary:            var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted:      var(--primary-muted);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:            var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:            var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Destructive */
+  --color-destructive:            var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-bg:         var(--destructive-bg);
+
+  /* Borders */
+  --color-border:       var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input:        var(--input);
+  --color-ring:         var(--ring);
+
+  /* Status */
+  --color-success:            var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-bg:         var(--success-bg);
+  --color-success-border:     var(--success-border);
+  --color-warning:            var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-bg:         var(--warning-bg);
+  --color-warning-border:     var(--warning-border);
+  --color-info:            var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-bg:         var(--info-bg);
+  --color-info-border:     var(--info-border);
+}
+
+/* ─────────────────────────────────────────────
+   BASE RESET & GLOBALS
+───────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100svh;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Thin, elegant scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--foreground-subtle); }
+}
